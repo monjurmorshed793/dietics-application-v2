@@ -7,19 +7,23 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {KeycloakAngularModule, KeycloakService} from "keycloak-angular";
 import {environment} from "../environments/environment";
 
-function initializeKeycloak(keycloak: KeycloakService){
-  return ()=>{
+
+function initializeKeycloak(keycloak: KeycloakService) {
+  return () =>
     keycloak.init({
-      config:{
-        url: environment.keycloakUri,
-        realm: environment.keycloakRealm,
-        clientId: environment.keycloakClientId
+      config: {
+        url: 'http://localhost:9080/auth',
+        realm: 'Dietics',
+        clientId: 'dietics-client',
       },
-      initOptions:{
-        checkLoginIframe: false
-      }
+      bearerExcludedUrls: ['/assets','/clients/public'],
+      initOptions: {
+        checkLoginIframe: false,
+        // onLoad: 'check-sso',
+        // silentCheckSsoRedirectUri:
+        //   window.location.origin + '/assets/silent-check-sso.html',
+      },
     });
-  }
 }
 
 @NgModule({
