@@ -35,8 +35,7 @@ function initializeKeycloak(keycloak: KeycloakService) {
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    KeycloakAngularModule,
-    MaterialModule
+    KeycloakAngularModule
   ],
   providers: [
     {

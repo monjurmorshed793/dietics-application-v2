@@ -3,12 +3,24 @@ import { RouterModule, Routes } from '@angular/router';
 import {AppComponent} from "./app.component";
 import {KeycloakAuthGuard} from "keycloak-angular";
 import {AuthGuardService} from "./security/auth-guard.service";
+import {DemoRoutingModule} from "./demo/demo-routing.module";
+import {InitialComponent} from "./demo/initial/initial.component";
+import {DieticsManagerModule} from "./dieticsmanager/dietics-manager.module";
 
 const routes: Routes = [
   {
-    path: '',
-    component: AppComponent,
-    canActivate: [AuthGuardService]
+    path:'demo',
+    canActivate: [AuthGuardService],
+    loadChildren: ()=> import('./demo/demo.module').then(m=> m.DemoModule)
+  },
+  {
+    path: 'dieticsmanager',
+    canActivate: [AuthGuardService],
+    loadChildren: ()=> import('./dieticsmanager/dietics-manager.module').then(m=> m.DieticsManagerModule)
+  },
+  {
+    path: '**',
+    redirectTo: 'dieticsmanager'
   }
 ];
 
