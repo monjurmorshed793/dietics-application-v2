@@ -7,6 +7,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {KeycloakAngularModule, KeycloakService} from "keycloak-angular";
 import {environment} from "../environments/environment";
 import {MaterialModule} from "./shared/material.module";
+import { RoleConfirmationComponent } from './role-confirmation/role-confirmation.component';
+import {MatCardModule} from "@angular/material/card";
+import {FlexLayoutModule} from "@angular/flex-layout";
+import {MatButtonModule} from "@angular/material/button";
 
 
 function initializeKeycloak(keycloak: KeycloakService) {
@@ -29,13 +33,17 @@ function initializeKeycloak(keycloak: KeycloakService) {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RoleConfirmationComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    KeycloakAngularModule
+    KeycloakAngularModule,
+    MatCardModule,
+    FlexLayoutModule,
+    MatButtonModule
   ],
   providers: [
     {

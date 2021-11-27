@@ -21,7 +21,7 @@ import {MatCardModule} from "@angular/material/card";
     DieticsManagerAppComponent,
     ToolbarComponent,
     MainContentComponent,
-    SidenavComponent
+    SidenavComponent,
   ],
   imports: [
     CommonModule,
