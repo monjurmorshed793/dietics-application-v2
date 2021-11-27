@@ -9,6 +9,9 @@ import {FlexLayoutModule} from "@angular/flex-layout";
 import {FormsModule} from "@angular/forms";
 import {RouterModule} from "@angular/router";
 import {DieticsManagerRoutingModule} from "./dietics-manager-routing.module";
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatListModule} from "@angular/material/list";
 
 
 
@@ -25,7 +28,10 @@ import {DieticsManagerRoutingModule} from "./dietics-manager-routing.module";
     FlexLayoutModule,
     FormsModule,
     RouterModule,
-    DieticsManagerRoutingModule
+    DieticsManagerRoutingModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatListModule
   ]
 })
 export class DieticsManagerModule { }
